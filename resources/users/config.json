@@ -1,12 +1,12 @@
 {
 	"type": "UserCollection",
 	"properties": {
-		"displayName": {
-			"name": "displayName",
+		"email": {
+			"name": "email",
 			"type": "string",
 			"typeLabel": "string",
-			"required": false,
-			"id": "displayName",
+			"required": true,
+			"id": "email",
 			"order": 0
 		}
 	}

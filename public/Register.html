@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="stylesheets/styles.css">
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="scripts/main.js" charset="utf-8"></script>
+  <script src="scripts/createuser.js" charset="utf-8"></script>
+  <script src="scripts/login.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/dpd.js"></script>
 </head>
 
 <body class="container">
@@ -25,15 +28,15 @@
           <form id="signin" class="navbar-form navbar-right" role="form">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">
+              <input id="login-name" type="username" class="form-control" name="username" value="" placeholder="User name">
             </div>
 
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-              <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">
+              <input id="login-pass" type="password" class="form-control" name="password" value="" placeholder="Password">
             </div>
 
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button id="login-user" type="submit" class="btn btn-primary">Login</button>
           </form>
         </div>
       </div>
@@ -43,29 +46,30 @@
     <section class="container">
 		<div class="container-page">
 			<div class="col-md-6">
+        <form>
 				<h3 class="dark-grey">Registration</h3>
 
 				<div class="form-group col-lg-12">
 					<label>Username</label>
-					<input type="" name="" class="form-control" id="" value="">
+					<input type="" name="username" id="user-name" class="form-control" required autofocus>
 				</div>
 
 				<div class="form-group col-lg-6">
 					<label>Password</label>
-					<input type="password" name="" class="form-control" id="" value="">
-				</div>
-
-				<div class="form-group col-lg-6">
-					<label>Repeat Password</label>
-					<input type="password" name="" class="form-control" id="" value="">
+					<input type="password" name="password" id="user-pass" class="form-control" required>
 				</div>
 
 				<div class="form-group col-lg-6">
 					<label>Email Address</label>
-					<input type="email" name="" class="form-control" id="" value="">
+					<input type="email" name="email" id="user-email" class="form-control" required>
 				</div>
 
-			</div>
+        <div class="form-group col-lg-6">
+          <input id="add-user" type="submit" value="Register" class="btn btn-primary">
+        </div>
+
+      </form>
+      </div>
 
 			<div class="col-md-6">
 				<h3 class="dark-grey">Things to Know</h3>
@@ -85,7 +89,7 @@
           You are almost there.  I profusely apologize.... but kinda not.
         </p>
 
-				<button type="submit" class="btn btn-primary" href="Profile.html">Register</button>
+				<button type="submit" class="btn btn-primary">Register</button>
 			</div>
 		</div>
 	</section>
