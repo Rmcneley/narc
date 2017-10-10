@@ -12,13 +12,14 @@ $(document).ready(function() {
       username: username,
       password: password,
       email: email
-    }, function(todo, err) {
+    }, function(user, err) {
       if (err) {
         alert(err.message || (err.errors && err.errors.title));
         return;
       }
     });
-    window.location.replace("Profile.html");
+
+    window.location.replace("index.html");
     return false;
   }
 

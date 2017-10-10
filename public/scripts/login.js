@@ -10,13 +10,14 @@ $(document).ready(function() {
     dpd.users.login({
       username: username,
       password: password
-    }, function(todo, err) {
+    }, function(user, err) {
       if (err) {
         alert(err.message || (err.errors && err.errors.title));
         return;
       }
     });
     window.location.replace("Profile.html");
+    console.log(username);
     return false;
   }
 
