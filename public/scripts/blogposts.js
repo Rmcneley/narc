@@ -13,7 +13,7 @@ $(document).ready(function() {
   }
 
   function renderBlogPost(item, element, userpic) {
-    console.log(user);
+    console.log(userpic);
     var $mediaDiv = $('<div></div>', {
       'class': 'media'
     });
@@ -60,6 +60,7 @@ $(document).ready(function() {
   }
 
   function getAllBlogPosts() {
+    console.log('before get');
     // get all blogposts in descending order
     dpd.blog.get({
       $sort: {
@@ -94,7 +95,7 @@ $(document).ready(function() {
       }
     }).then(function(results) {
       results.forEach(function(item) {
-        renderBlogPost(item, '#user-blogposts')
+        renderBlogPost(item, '#user-blogposts', user.profilepic)
       });
     }, function(err) {
       if (err) {
