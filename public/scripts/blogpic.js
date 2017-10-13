@@ -4,7 +4,7 @@ $('.alert-success').hide();
 var addBlogpost = function(fd){
   var uniqueFilename = "true";
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/imagesupload?subdir=blogpics&uniqueFilename=' + uniqueFilename);
+  xhr.open('POST', '/imagesupload&uniqueFilename=' + uniqueFilename);
   xhr.onload = function() {
     var response = JSON.parse(this.responseText);
     console.log(response);
@@ -33,7 +33,7 @@ var addBlogpost = function(fd){
 var updateProfilePic = function(fd){
   var uniqueFilename = "true";
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/imagesupload?subdir=images&uniqueFilename=' + uniqueFilename);
+  xhr.open('POST', '/imagesupload&uniqueFilename=' + uniqueFilename);
   xhr.onload = function() {
     var response = JSON.parse(this.responseText);
     console.log(response);

@@ -1,33 +1,19 @@
 $(document).ready(function() {
 
-  function getProfilePic(user){
-    dpd.users.get({
-      username: user
-    }).then(function(results) {
-      var s = 'http://localhost:2403//imagesupload/images/' + results[0]['profilepic'];
-      return s;
-    }, function(err) {
-      if (err) {
-        alert(err.message || (err.errors && err.errors.title));
-        return;
-      }
-    });
-  }
 
   function renderProfilePic(user){
     //<img id="profile-picture" src="/img/defaultprofilepic.png" class="img-responsive" style="width:500px">
-    console.log(getProfilePic(user));
     var $profileImg = $('<img></img>', {
-      'src': getProfilePic(user),
+      'src': 'http://localhost:2403//imagesupload/'+ user.profilepic,
       'class': 'img-responsive',
       'style': 'width:500px'
     });
     this.$element = $('#profile-image-column');
-    this.$element.before($profileImg);
+    this.$element.append($profileImg);
   }
 
-  function renderBlogPost(item, element) {
-    console.log(getProfilePic(item['username']));
+  function renderBlogPost(item, element, userpic) {
+    console.log(user);
     var $mediaDiv = $('<div></div>', {
       'class': 'media'
     });
@@ -35,7 +21,7 @@ $(document).ready(function() {
       'class': 'media-left'
     });
     var $profileImg = $('<img></img>', {
-      'src': getProfilePic(item['username']),
+      'src': 'http://localhost:2403//imagesupload/' + userpic,
       'class': 'media-object',
       'style': 'width:45px'
     });
@@ -52,7 +38,7 @@ $(document).ready(function() {
     var $blogPostTextP = $('<p></p>');
     var blogPostText = item['Blogpost'];
     var $blogPostImg = $('<img></img>', {
-      'src': 'http://localhost:2403//imagesupload/blogpics/' + item['blogimg'],
+      'src': 'http://localhost:2403//imagesupload/' + item['blogimg'],
       'class':'img-responsive',
       'style': 'width:500px'
     });
@@ -74,7 +60,6 @@ $(document).ready(function() {
   }
 
   function getAllBlogPosts() {
-    console.log('before get');
     // get all blogposts in descending order
     dpd.blog.get({
       $sort: {
@@ -82,8 +67,14 @@ $(document).ready(function() {
       }
     }).then(function(results) {
       results.forEach(function(item) {
-        renderBlogPost(item, '#all-blogposts')
-
+        dpd.users.get({ username:item.username}).then(function(user){
+          renderBlogPost(item,  '#all-blogposts', user[0]['profilepic']);
+        },function(err) {
+          if (err) {
+            alert(err.message || (err.errors && err.errors.title));
+            return;
+          }
+        });
       });
     }, function(err) {
       if (err) {
@@ -97,7 +88,7 @@ $(document).ready(function() {
   function getAllUserBlogPost(user) {
     // get all blogposts in descending order
     dpd.blog.get({
-      username: user,
+      username: user.username,
       $sort: {
         Timestamp: -1
       }
@@ -116,7 +107,7 @@ $(document).ready(function() {
   getAllBlogPosts();
 
   dpd.users.me(function(me) {
-    getAllUserBlogPost(me.username);
-    renderProfilePic(me.username);
+    getAllUserBlogPost(me);
+    renderProfilePic(me);
   });
 });
