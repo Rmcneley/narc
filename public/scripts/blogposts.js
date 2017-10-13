@@ -26,7 +26,7 @@ $(document).ready(function() {
     var $blogPostTextP = $('<p></p>');
     var blogPostText = item['Blogpost'];
     var $blogPostImg = $('<img></img>', {
-      'src': '/img/' + item['Imagename'],
+      'src': 'http://localhost:2403//imagesupload/blogpics/' + item['blogimg'],
       'class':'img-responsive',
       'style': 'width:500px'
     });
@@ -88,7 +88,7 @@ $(document).ready(function() {
   }
 
   getAllBlogPosts();
-  
+
   dpd.users.me(function(me) {
     getAllUserBlogPost('user');
   });
