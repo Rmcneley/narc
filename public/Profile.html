@@ -37,18 +37,22 @@
     <div class="container-fluid">
       <div class="row">
         <div id="profile-image-column" class="col-xs-4 ">
-          <img id="profile-picture" src="/img/defaultprofilepic.png" class="img-responsive" style="width:500px">
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
-          <div id="demo" class="collapse">
-            <h3>Upload Profile Pic</h3><img id="img_profile" height="200" width="200" alt="Image preview...">
-            <input type="file" id="exampleInputFile" onchange="setFiles(this)" multiple>
-            <button type="button" class="btn btn-success" onclick="uploadFiles()">Submit</button>
-          </div>
+
         </div>
         <div class="col-xs-8 ">
           <div class="tab-content">
-            <div id="user-blogposts" class="tab-pane fade in active"></div>
-            <div id="user-about-me" class="tab-pane fade"></div>
+            <div id="user-blogposts" class="tab-pane fade in active">
+              <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#newpost">create new post</button>
+              <div id="newpost" class="collapse">
+                <h3>new post!</h3>
+                <img id="blogpost-img" height="200" width="200" alt="Image preview...">
+                <input type="file" id="exampleInputFile" onchange="setFiles(this)" multiple>
+                <button type="button" class="btn btn-success" onclick="uploadFiles()">Submit</button>
+              </div>
+            </div>
+            <div id="user-about-me" class="tab-pane fade">
+
+            </div>
             <div id="user-photos" class="tab-pane fade"></div>
           </div>
         </div>

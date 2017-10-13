@@ -1,6 +1,33 @@
 $(document).ready(function() {
 
+  function getProfilePic(user){
+    dpd.users.get({
+      username: user
+    }).then(function(results) {
+      var s = 'http://localhost:2403//imagesupload/images/' + results[0]['profilepic'];
+      return s;
+    }, function(err) {
+      if (err) {
+        alert(err.message || (err.errors && err.errors.title));
+        return;
+      }
+    });
+  }
+
+  function renderProfilePic(user){
+    //<img id="profile-picture" src="/img/defaultprofilepic.png" class="img-responsive" style="width:500px">
+    console.log(getProfilePic(user));
+    var $profileImg = $('<img></img>', {
+      'src': getProfilePic(user),
+      'class': 'img-responsive',
+      'style': 'width:500px'
+    });
+    this.$element = $('#profile-image-column');
+    this.$element.before($profileImg);
+  }
+
   function renderBlogPost(item, element) {
+    console.log(getProfilePic(item['username']));
     var $mediaDiv = $('<div></div>', {
       'class': 'media'
     });
@@ -8,8 +35,7 @@ $(document).ready(function() {
       'class': 'media-left'
     });
     var $profileImg = $('<img></img>', {
-      //temporary placeholder TODO:get user profile img
-      'src': '/img/MeLogo.png',
+      'src': getProfilePic(item['username']),
       'class': 'media-object',
       'style': 'width:45px'
     });
@@ -90,6 +116,7 @@ $(document).ready(function() {
   getAllBlogPosts();
 
   dpd.users.me(function(me) {
-    getAllUserBlogPost('user');
+    getAllUserBlogPost(me.username);
+    renderProfilePic(me.username);
   });
 });
