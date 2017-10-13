@@ -11,7 +11,8 @@ $(document).ready(function() {
     dpd.users.post({
       username: username,
       password: password,
-      email: email
+      email: email,
+      profilepic:'defaultprofilepic.png'
     }, function(user, err) {
       if (err) {
         alert(err.message || (err.errors && err.errors.title));

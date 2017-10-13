@@ -72,6 +72,7 @@ $(document).ready(function() {
   }
 
   function getProfilePic(user){
+    console.log(user.profilepic);
     renderPhoto(user.profilepic, '#profile-image-column', '500px');
   }
 
