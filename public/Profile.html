@@ -6,10 +6,7 @@
   <title>Narc Site PlaceHolder</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/styles.css">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script src="scripts/main.js" charset="utf-8"></script>
-  <script src="scripts/authenticate.js" charset="utf-8"></script>
-  <script type="text/javascript" src="/dpd.js"></script>
+
 </head>
 
 <body class="container-fluid">
@@ -30,6 +27,35 @@
     </nav>
   </header>
   <h1>Profile Page</h1>
-</body>
+  <a href="ProfileEdit.html">Edit Profile</a>
+  <div class="container">
+    <ul class="nav nav-pills">
+      <li class="active"><a data-toggle="pill" href="#user-blogposts">Posts</a></li>
+      <li><a data-toggle="pill" href="#user-about-me">About Me</a></li>
+      <li><a data-toggle="pill" href="#user-photos">Photos</a></li>
+    </ul>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="profile-image-column" class="col-xs-4 ">
+          <img src="/img/MeLogo.png" class="img-responsive" style="width:500px">
+        </div>
+        <div class="col-xs-8 ">
+          <div class="tab-content">
+            <div id="user-blogposts" class="tab-pane fade in active"></div>
+            <div id="user-about-me" class="tab-pane fade"></div>
+            <div id="user-photos" class="tab-pane fade"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="scripts/blogposts.js" charset="utf-8"></script>
+<script src="scripts/main.js" charset="utf-8"></script>
+<script src="scripts/authenticate.js" charset="utf-8"></script>
+<script type="text/javascript" src="/dpd.js"></script>
 </html>
