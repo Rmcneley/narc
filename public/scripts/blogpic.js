@@ -63,8 +63,7 @@ var uploadFiles = function() {
   }
   addBlogpost(fd);
   updateProfilePic(fd);
-  //refresh page
-  fd.reset();
+
 };
 
 var setFiles = function(element) {

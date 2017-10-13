@@ -1,19 +1,18 @@
 $(document).ready(function() {
 
 
-  function renderProfilePic(user){
+  function renderPhoto(photo, element, width){
     //<img id="profile-picture" src="/img/defaultprofilepic.png" class="img-responsive" style="width:500px">
     var $profileImg = $('<img></img>', {
-      'src': 'http://localhost:2403//imagesupload/'+ user.profilepic,
+      'src': 'http://localhost:2403//imagesupload/'+ photo,
       'class': 'img-responsive',
-      'style': 'width:500px'
+      'style': 'width:'+width
     });
-    this.$element = $('#profile-image-column');
+    this.$element = $(element);
     this.$element.append($profileImg);
   }
 
   function renderBlogPost(item, element, userpic) {
-    console.log(userpic);
     var $mediaDiv = $('<div></div>', {
       'class': 'media'
     });
@@ -43,6 +42,7 @@ $(document).ready(function() {
       'style': 'width:500px'
     });
 
+
     $timeStampItalic.append(timeStampText);
     $timeStampSmallHeading.append($timeStampItalic);
     $profileNameHeading.append(profileName);
@@ -59,8 +59,23 @@ $(document).ready(function() {
     this.$element.append($mediaDiv);
   }
 
+  function getUserPhotos(user){
+    dpd.blog.get(
+      {
+        username:user.username,
+        blogimg:{$ne: ''}
+      }).then(function (results){
+        results.forEach(function(post){
+          renderPhoto(post.blogimg, '#user-photos', '400px');
+        });
+      });
+  }
+
+  function getProfilePic(user){
+    renderPhoto(user.profilepic, '#profile-image-column', '500px');
+  }
+
   function getAllBlogPosts() {
-    console.log('before get');
     // get all blogposts in descending order
     dpd.blog.get({
       $sort: {
@@ -109,6 +124,7 @@ $(document).ready(function() {
 
   dpd.users.me(function(me) {
     getAllUserBlogPost(me);
-    renderProfilePic(me);
+    getProfilePic(me);
+    getUserPhotos(me);
   });
 });
