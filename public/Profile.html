@@ -9,6 +9,8 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="scripts/main.js" charset="utf-8"></script>
   <script src="scripts/authenticate.js" charset="utf-8"></script>
+  <script src="scripts/blogpic.js" charset="utf-8"></script>
+  <script src="scripts/login.js" charset="utf-8"></script>
   <script type="text/javascript" src="/dpd.js"></script>
 </head>
 
@@ -24,12 +26,20 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="ProfileEdit.html">Edit Profile</a></li>
             <li><a href="ProfilePublic.html">Public Profile</a></li>
+            <button id="logout-user" type="submit" class="btn btn-primary">Logout</button>
           </ul>
         </div>
       </div>
     </nav>
   </header>
   <h1>Profile Page</h1>
+
+  <h3>Upload Profile Pic</h3><img id="img_profile" height="200" width="200" alt="Image preview...">
+  <input type="file" id="exampleInputFile" onchange="setFiles(this)" multiple>
+  <button type="button" class="btn btn-success" onclick="uploadFiles()">Submit</button>
+
+
+
 </body>
 
 </html>
