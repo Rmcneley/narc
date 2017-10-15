@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="stylesheets/styles.css">
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="scripts/main.js" charset="utf-8"></script>
+  <script src="scripts/userpic.js" charset="utf-8"></script>
   <script src="scripts/authenticate.js" charset="utf-8"></script>
   <script type="text/javascript" src="/dpd.js"></script>
 </head>
@@ -29,6 +30,10 @@
     </nav>
   </header>
   <h1>Edit profile</h1>
+
+<h3>Upload Profile Pic</h3><img id="img_profile" height="200" width="200" alt="Image preview...">
+<input type="file" id="exampleInputFile" onchange="setFiles(this)" multiple>
+<button type="button" class="btn btn-success" onclick="uploadFiles()">Submit</button>
 </body>
 
 </html>

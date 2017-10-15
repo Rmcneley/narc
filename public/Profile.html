@@ -6,10 +6,7 @@
   <title>Narc Site PlaceHolder</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/styles.css">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script src="scripts/main.js" charset="utf-8"></script>
-  <script src="scripts/authenticate.js" charset="utf-8"></script>
-  <script type="text/javascript" src="/dpd.js"></script>
+
 </head>
 
 <body class="container-fluid">
@@ -25,11 +22,170 @@
             <li><a href="ProfileEdit.html">Edit Profile</a></li>
             <li><a href="ProfilePublic.html">Public Profile</a></li>
           </ul>
+        <div id="logcheck"></div>
         </div>
       </div>
     </nav>
   </header>
-  <h1>Profile Page</h1>
+  <div class="container">
+    <ul class="nav nav-pills">
+      <li class="active"><a data-toggle="pill" href="#user-blogposts">Posts</a></li>
+      <li><a data-toggle="pill" href="#user-about-me">My Traits</a></li>
+      <li><a data-toggle="pill" href="#user-photos">Photos</a></li>
+    </ul>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="profile-image-column" class="col-xs-4 ">
+
+        </div>
+        <div class="col-xs-8 ">
+          <div class="tab-content">
+            <div id="user-blogposts" class="tab-pane fade in active">
+              <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#newpost">create new post</button>
+              <div id="newpost" class="collapse">
+                <h3>new post!</h3>
+                <img id="blogpost-img" height="200" width="200" alt="Image preview...">
+                <input type="file" id="exampleInputFile" onchange="setFiles(this)" multiple></br>
+
+                <span class="input-group-addon">Write a Blog</span>
+                   <input id="msg" type="text" class="form-control" name="msg" placeholder="">
+                   <button type="button" class="btn btn-success" onclick="writeBlog()">Submit</button>
+              </div>
+            </div>
+            <div id="user-about-me" class="tab-pane fade">
+              <legend><br>Your traits!</legend>
+              <h4 id="user-traits"></h4>
+              <form special-attributes="form" name="formAttr">
+                <fieldset>
+                  <legend><br><br><br>5 Things That Make You Special<br>
+                    <small>you will not be able to add more than 5</small>
+                  </legend>
+
+                  <div name="Attr">
+                    <div class="checkbox">
+                      <label>
+                    <input type="checkbox" name="attributes" value="I'm smarter than everyone else">
+                    I'm smarter than everyone else
+                    </label>
+                    </div>
+
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="I'm better looking than everyone else">
+                    I'm better looking than everyone else
+                </label>
+                    </div>
+
+                    <div class="checkbox">
+                      <label>
+                    <input type="checkbox" name="attributes" value="I've got the best words">
+                    I've got the best words
+                    </label>
+                    </div>
+
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="I'm exceptionally talented">
+                  I'm exceptionally talented
+                  </label>
+                    </div>
+
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="I hold great influence over others">
+                  I hold great influence over others
+                  </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="I'm the most humble">
+                  I'm the most humble
+                  </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="I'm the life of every party">
+                  I'm the life of every party
+                  </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="I always get what I want">
+                  I always get what I want
+                  </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="I'm flawless">
+                  I'm flawless
+                  </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="I woke up like this">
+                  I woke up like this
+                  </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="I was born to be famous">
+                  I was born to be famous
+                  </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="Everyone tells me I'm special and I am!">
+                  Everyone tells me I'm special and I am!
+                  </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="My body is banging and everyone wants me">
+                  My body is banging and everyone wants me
+                  </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" name="attributes" value="People are always jealous of me">
+                  People are always jealous of me
+                </label>
+                    </div>
+
+                    <div class="checkbox">
+                      <label>
+                  <input type="checkbox" class="uservar" name="attributes" value="other" id="changeme">
+                  Other
+                    <div class ="custom_input">
+                    <input type="text" name="custom_text" id="mytext">
+                    </div>
+                  </label>
+                    </div>
+
+                    <button type="button" class="btn btn-default" id="submit-traits">Submit</button>
+                    <button type="reset" class="btn btn-default">Reset</button>
+                  </div>
+                </fieldset>
+              </form>
+
+            </div>
+            <div id="user-photos" class="tab-pane fade"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="scripts/blogposts.js" charset="utf-8"></script>
+<script src="scripts/blogpic.js" charset="utf-8"></script>
+<script src="scripts/traits.js" charset="utf-8"></script>
+<script src="scripts/main.js" charset="utf-8"></script>
+<script src="scripts/authenticate.js" charset="utf-8"></script>
+<script type="text/javascript" src="/dpd.js"></script>
+<script src="scripts/logIO.js" charset="utf-8"></script>
+<script src="scripts/nav.js" charset="utf-8"></script>
 
 </html>

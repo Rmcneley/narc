@@ -6,10 +6,6 @@
   <title>Narc Site PlaceHolder</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/styles.css">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script src="scripts/main.js" charset="utf-8"></script>
-  <script src="scripts/login.js" charset="utf-8"></script>
-  <script type="text/javascript" src="/dpd.js"></script>
 </head>
 
 <body class="container">
@@ -20,27 +16,33 @@
         <div class="navbar-header">
         <a href="#" class="navbar-left"><img src="/img/MeLogo.png"></a>
         </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="Profile.html">Profile</a></li>
+            <li><a href="Register.html">Create Account</a></li>
+          </ul>
 
-        <div>
-          <form id="signin" class="navbar-form navbar-right" role="form">
-            <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input id="login-name" type="username" class="form-control" name="username" value="" placeholder="User name">
-            </div>
+          <div id="logcheck"></div>
 
-            <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-              <input id="login-pass" type="password" class="form-control" name="password" value="" placeholder="Password">
-            </div>
-
-            <button id="login-user" type="submit" class="btn btn-primary">Login</button>
-          </form>
         </div>
       </div>
     </nav>
   </header>
-  <a href="Register.html">Create an account</a>
-  <a href="ProfilePublic.html">Public Profile</a>
-</body>
 
+  <div class="container-fluid">
+  	<div class="row">
+      <div id="profile-image-column" class="col-xs-4 "></div>
+      <div id="all-blogposts" class="col-xs-8 "></div>
+    </div>
+  </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="scripts/blogposts.js" charset="utf-8"></script>
+<script src="scripts/logIO.js" charset="utf-8"></script>
+<script src="scripts/nav.js" charset="utf-8"></script>
+<script type="text/javascript" src="/dpd.js"></script>
+<script src="scripts/main.js" charset="utf-8"></script>
 </html>

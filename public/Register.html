@@ -6,11 +6,7 @@
   <title>Narc Site PlaceHolder</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/styles.css">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script src="scripts/main.js" charset="utf-8"></script>
-  <script src="scripts/createuser.js" charset="utf-8"></script>
-  <script src="scripts/login.js" charset="utf-8"></script>
-  <script type="text/javascript" src="/dpd.js"></script>
+
 </head>
 
 <body class="container">
@@ -25,19 +21,9 @@
           <ul class="nav navbar-nav">
             <li><a href="index.html">Home</a></li>
           </ul>
-          <form id="signin" class="navbar-form navbar-right" role="form">
-            <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input id="login-name" type="username" class="form-control" name="username" value="" placeholder="User name">
-            </div>
 
-            <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-              <input id="login-pass" type="password" class="form-control" name="password" value="" placeholder="Password">
-            </div>
+          <div id="logcheck"></div>
 
-            <button id="login-user" type="submit" class="btn btn-primary">Login</button>
-          </form>
         </div>
       </div>
     </nav>
@@ -92,5 +78,10 @@
 	</section>
 </div>
 </body>
-
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="scripts/main.js" charset="utf-8"></script>
+  <script src="scripts/createuser.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/dpd.js"></script>
+  <script src="scripts/logIO.js" charset="utf-8"></script>
+  <script src="scripts/nav.js" charset="utf-8"></script>
 </html>

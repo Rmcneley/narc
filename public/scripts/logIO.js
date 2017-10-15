@@ -1,12 +1,9 @@
-$(document).ready(function() {
+function loginUser() {
+    console.log("Logged Out");
 
-  $('#login-user').click(loginUser);
-
-  function loginUser() {
     var username = $('#login-name').val();
     var password = $('#login-pass').val();
 
-    // Create a user
     dpd.users.login({
       username: username,
       password: password
@@ -16,9 +13,11 @@ $(document).ready(function() {
         return;
       }
     });
-    window.location.replace("Profile.html");
-    console.log(username);
-    return false;
   }
 
-});
+  function logoutUser() {
+    console.log("Logged Out");
+    dpd.users.logout(function(err) {
+      if(err) console.log(err);
+    });
+  }
