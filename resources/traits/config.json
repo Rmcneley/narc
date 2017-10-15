@@ -1,20 +1,20 @@
 {
-	"type": "UserCollection",
+	"type": "Collection",
 	"properties": {
-		"email": {
-			"name": "email",
+		"username": {
+			"name": "username",
 			"type": "string",
 			"typeLabel": "string",
 			"required": true,
-			"id": "email",
+			"id": "username",
 			"order": 0
 		},
-		"profilepic": {
-			"name": "profilepic",
+		"traits": {
+			"name": "traits",
 			"type": "string",
 			"typeLabel": "string",
 			"required": false,
-			"id": "profilepic",
+			"id": "traits",
 			"order": 1
 		}
 	}
