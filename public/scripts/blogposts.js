@@ -4,7 +4,7 @@ $(document).ready(function() {
   function renderPhoto(photo, element, width){
     //<img id="profile-picture" src="/img/defaultprofilepic.png" class="img-responsive" style="width:500px">
     var $profileImg = $('<img></img>', {
-      'src': 'http://localhost:2403//imagesupload/'+ photo,
+      'src': 'http://localhost:2403//imagesupload/images/'+ photo,
       'class': 'img-responsive',
       'style': 'width:'+width
     });
@@ -20,7 +20,7 @@ $(document).ready(function() {
       'class': 'media-left'
     });
     var $profileImg = $('<img></img>', {
-      'src': 'http://localhost:2403//imagesupload/' + userpic,
+      'src': 'http://localhost:2403//imagesupload/images/' + userpic,
       'class': 'media-object',
       'style': 'width:45px'
     });
@@ -75,6 +75,9 @@ $(document).ready(function() {
     console.log(user.profilepic);
     renderPhoto(user.profilepic, '#profile-image-column', '500px');
   }
+
+  var write = function()  {
+}
 
   function getAllBlogPosts() {
     // get all blogposts in descending order

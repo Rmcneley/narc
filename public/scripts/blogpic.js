@@ -12,9 +12,9 @@ var addBlogpost = function(fd){
       dpd.users.me(function(me) {
         var data = {};
         data["username"] = me.username;
-        data["Blogpost"] = "Sample Testing Blog";
+        data["Blogpost"] = "";
         data["Timestamp"] =  Date.now();
-        data["blogimg"] = response[0].filename;
+        data["blogimg"]="abc";
         dpd.blog.post(data, function(result, err) {
           if (err) return console.log(err);
           console.log(result, result.id);
@@ -53,6 +53,31 @@ var updateProfilePic = function(fd){
   }
   xhr.send(fd);
 
+};
+
+var writeBlog = function() {
+  var fd = new FormData()
+  for (var i in files) {
+    fd.append("uploadedFile", files[i])
+  }
+  var uniqueFilename = "true";
+  var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/imagesupload?subdir=images&uniqueFilename=' + uniqueFilename);
+    xhr.onload = function() {
+      dpd.users.me(function(me) {
+      var data = {};
+      var message = document.querySelector('#msg');
+      data["username"] = me.username;
+      data["Blogpost"] = message.value;
+      data["Timestamp"] =  Date.now();
+      data["blogimg"] = response[0].filename;
+      dpd.blog.post(data, function(result, err) {
+        if (err) return console.log(err);
+        console.log(result, result.id);
+      });
+  });
+    };
+    xhr.send(fd);
 };
 
 var uploadFiles = function() {

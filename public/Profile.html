@@ -46,8 +46,11 @@
               <div id="newpost" class="collapse">
                 <h3>new post!</h3>
                 <img id="blogpost-img" height="200" width="200" alt="Image preview...">
-                <input type="file" id="exampleInputFile" onchange="setFiles(this)" multiple>
-                <button type="button" class="btn btn-success" onclick="uploadFiles()">Submit</button>
+                <input type="file" id="exampleInputFile" onchange="setFiles(this)" multiple></br>
+
+                <span class="input-group-addon">Write a Blog</span>
+                   <input id="msg" type="text" class="form-control" name="msg" placeholder="">
+                   <button type="button" class="btn btn-success" onclick="writeBlog()">Submit</button>
               </div>
             </div>
             <div id="user-about-me" class="tab-pane fade">
@@ -177,9 +180,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="scripts/blogposts.js" charset="utf-8"></script>
 <script src="scripts/blogpic.js" charset="utf-8"></script>
 <script src="scripts/traits.js" charset="utf-8"></script>
-<script src="scripts/blogposts.js" charset="utf-8"></script>
 <script src="scripts/main.js" charset="utf-8"></script>
 <script src="scripts/authenticate.js" charset="utf-8"></script>
 <script type="text/javascript" src="/dpd.js"></script>
