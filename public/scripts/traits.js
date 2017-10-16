@@ -1,3 +1,4 @@
+
 // an array of selected attributes
 function getSelectedCheckedBox(form) {
 
@@ -16,19 +17,13 @@ function getSelectedCheckedBox(form) {
   return chx;
 }
 
-//disables checkboxes after 5
 
-jQuery(function() {
-  var limit = 5;
-  var checked = $('input[type="checkbox"]');
 
-  checked.change(function() {
-    var count = checked.filter(':checked').length;
-    checked.filter(':not(:checked)').prop('disabled', count >= limit);
-
-  });
+$("input:checkbox").click(function () {
+    if ($("input:checkbox:checked").length > 5) {
+        $("input:checkbox:checked").not(this).first().attr("checked", false);
+    }
 });
-
 //hides text box until other is checked
 
 jQuery(document).ready(function($) {
@@ -40,8 +35,38 @@ jQuery(document).ready(function($) {
   }).change();
 });
 
-//submit button
-//instead of alert send it to the back-end
+//appends chx array to li might need to use get?
+$(document).ready(function(){
+  $("#submit-traits").click(function(){
+    var chx = getSelectedCheckedBox(this.form);
+    for(var i = 0; i < chx.length;i++){
+    $("#list").append("<li>"+ chx[i] +"</li>")
+    }
+  });
+});
+//shows form2 on submission
+//hides checkboxes
+$(document).ready(function() {
+  $("#submit-traits").click(function(){
+    $("#form1").hide();
+    $("#form2").show();
+    });
+  });
+
+
+//edit traits resets the checkboxes
+//hides the list and empties li elements
+$(document).ready(function() {
+  $("#edit").click(function(e){
+    e.preventDefault();
+    $("#form1").show();
+    $("#form2").hide();
+    $('input:checkbox').removeAttr('checked');
+    $("#list").empty();
+
+  });
+});
+
 $(document).ready(function() {
   function renderTrait(trait, element){
     console.log(trait);
@@ -69,11 +94,11 @@ $(document).ready(function() {
             return;
           }
         });
-  }
+  };
 
 
   dpd.users.me(function(me) {
-    $('#submit-traits').click(function (){
+    $("#submit-traits").click(function (){
       var chx = getSelectedCheckedBox(this.form);
       var data ={};
       data['username'] = me.username;
